@@ -24,6 +24,7 @@ defmodule WtfWeb do
       import Plug.Conn
       import WtfWeb.Gettext
       alias WtfWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller, only: [live_render: 3]
     end
   end
 
@@ -42,6 +43,7 @@ defmodule WtfWeb do
       import WtfWeb.ErrorHelpers
       import WtfWeb.Gettext
       alias WtfWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
     end
   end
 
@@ -50,6 +52,7 @@ defmodule WtfWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

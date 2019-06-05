@@ -1,6 +1,8 @@
 defmodule WtfWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :wtf
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", WtfWeb.UserSocket,
     websocket: true,
     longpoll: false
