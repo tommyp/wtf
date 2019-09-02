@@ -15,7 +15,10 @@ config :wtf, WtfWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "brkBxaJRqdWZOqYvwqBExQOMlSa0+E0xW/sObZJ4TVktCmoYSKlr7etWWAvNSPLt",
   render_errors: [view: WtfWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Wtf.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Wtf.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "I66bOUA6UGBK1LDjtkxhXjDqd3zKdXGi"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
