@@ -1,5 +1,5 @@
-<form phx-change="handle_search" phx-debounce=2000>
-  <input name="query" autocomplete="off"/>
+<form phx-change="handle_search" phx-debounce="2000">
+  <input name="query" autocomplete="off" value="<%= @query %>"/>
 </form>
 
 <h2><%= @query %></h2>

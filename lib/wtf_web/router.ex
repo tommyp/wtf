@@ -18,7 +18,7 @@ defmodule WtfWeb.Router do
     pipe_through :browser
 
     get "/", SearchController, :index
-    get "/:geo_query", SearchController, :index
+    get "/:query", SearchController, :index
   end
 
   # Other scopes may use custom stacks.

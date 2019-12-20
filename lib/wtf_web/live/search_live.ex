@@ -11,7 +11,7 @@ defmodule WtfWeb.SearchLive do
     {:noreply, assign(socket, :query, query)}
   end
 
-  def mount(_session, socket) do
-    {:ok, assign(socket, :query, "")}
+  def mount(%{query: query}, socket) do
+    {:ok, assign(socket, :query, query)}
   end
 end
