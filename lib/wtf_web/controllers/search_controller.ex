@@ -3,6 +3,6 @@ defmodule WtfWeb.SearchController do
   alias Phoenix.LiveView
 
   def index(conn, params) do
-    LiveView.Controller.live_render(conn, WtfWeb.SearchLive, session: %{query: params["query"]})
+    LiveView.Controller.live_render(conn, WtfWeb.SearchLive, session: %{"query" => params["query"]})
   end
 end

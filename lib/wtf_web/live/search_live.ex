@@ -6,12 +6,15 @@ defmodule WtfWeb.SearchLive do
   end
 
   def handle_event("handle_search", %{"query" => query}, socket) do
-    IO.puts(query)
-
-    {:noreply, assign(socket, :query, query)}
+    case Wtf.Geo.search(query) do
+      {:ok, area} ->
+        {:noreply, assign(socket, :query, area.name)}
+      {:error, :no_geo_result} ->
+        {:noreply, assign(socket, :query, "no result")}
+    end
   end
 
-  def mount(%{query: query}, socket) do
+  def mount(%{"query" => query}, socket) do
     {:ok, assign(socket, :query, query)}
   end
 end
