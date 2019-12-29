@@ -43,8 +43,8 @@ defmodule Wtf.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_live_view, "~> 0.1.0"},
-      {:geonames, "~> 1.0.2"},
+      {:phoenix_live_view, "~> 0.4.1"},
+      {:geonames, "~> 1.0.2"}
     ]
   end
 
