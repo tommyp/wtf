@@ -67,4 +67,67 @@ defmodule Wtf.SearchTest do
       assert %Ecto.Changeset{} = Search.change_area(area)
     end
   end
+
+  describe "venues" do
+    alias Wtf.Search.Venue
+
+    @valid_attrs %{category: "some category", venue_name: "some venue_name", venue_url: "some venue_url"}
+    @update_attrs %{category: "some updated category", venue_name: "some updated venue_name", venue_url: "some updated venue_url"}
+    @invalid_attrs %{category: nil, venue_name: nil, venue_url: nil}
+
+    def venue_fixture(attrs \\ %{}) do
+      {:ok, venue} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Search.create_venue()
+
+      venue
+    end
+
+    test "list_venues/0 returns all venues" do
+      venue = venue_fixture()
+      assert Search.list_venues() == [venue]
+    end
+
+    test "get_venue!/1 returns the venue with given id" do
+      venue = venue_fixture()
+      assert Search.get_venue!(venue.id) == venue
+    end
+
+    test "create_venue/1 with valid data creates a venue" do
+      assert {:ok, %Venue{} = venue} = Search.create_venue(@valid_attrs)
+      assert venue.category == "some category"
+      assert venue.venue_name == "some venue_name"
+      assert venue.venue_url == "some venue_url"
+    end
+
+    test "create_venue/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Search.create_venue(@invalid_attrs)
+    end
+
+    test "update_venue/2 with valid data updates the venue" do
+      venue = venue_fixture()
+      assert {:ok, %Venue{} = venue} = Search.update_venue(venue, @update_attrs)
+      assert venue.category == "some updated category"
+      assert venue.venue_name == "some updated venue_name"
+      assert venue.venue_url == "some updated venue_url"
+    end
+
+    test "update_venue/2 with invalid data returns error changeset" do
+      venue = venue_fixture()
+      assert {:error, %Ecto.Changeset{}} = Search.update_venue(venue, @invalid_attrs)
+      assert venue == Search.get_venue!(venue.id)
+    end
+
+    test "delete_venue/1 deletes the venue" do
+      venue = venue_fixture()
+      assert {:ok, %Venue{}} = Search.delete_venue(venue)
+      assert_raise Ecto.NoResultsError, fn -> Search.get_venue!(venue.id) end
+    end
+
+    test "change_venue/1 returns a venue changeset" do
+      venue = venue_fixture()
+      assert %Ecto.Changeset{} = Search.change_venue(venue)
+    end
+  end
 end

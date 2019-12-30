@@ -30,6 +30,14 @@ config :phoenix, :json_library, Jason
 
 config :phoenix, template_engines: [leex: Phoenix.LiveView.Engine]
 
+config :geonames,
+  username: "tommypdev",
+  language: "en"
+
+config :bees,
+  foursquare_client_id: "AQIKJSHEIUF4AETDY0DJ4AOSMXCUW1VPDNCHHGOLL2DRELUT",
+  foursquare_client_secret: "XSAATNK3DPMGYL2L14OZTYWAF1K3WXE1PIYED0SVLEQWNA2Q"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

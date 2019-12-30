@@ -20,7 +20,7 @@ defmodule Wtf.MixProject do
   def application do
     [
       mod: {Wtf.Application, []},
-      extra_applications: [:logger, :runtime_tools, :geonames]
+      extra_applications: [:logger, :runtime_tools, :geonames, :timex]
     ]
   end
 
@@ -44,7 +44,11 @@ defmodule Wtf.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.4.1"},
-      {:geonames, "~> 1.0.2"}
+      {:geonames, "~> 1.0.2"},
+      {:bees, "~> 0.3.0"},
+      {:timex, "~> 3.5"},
+      {:ex_machina, "~> 2.2", only: :test},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 

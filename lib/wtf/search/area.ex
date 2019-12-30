@@ -7,6 +7,7 @@ defmodule Wtf.Search.Area do
     field :lng, :float
     field :name, :string
     field :refreshed_at, :naive_datetime
+    has_many(:venues, Wtf.Search.Venue)
 
     timestamps()
   end
